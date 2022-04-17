@@ -2,5 +2,9 @@
 
 ?>
 
-<link rel="stylesheet" href="css/css.css">
-<h1>Hello</h1>
+<link rel="stylesheet" href="index.css">
+
+
+<a href="championshipapp/tournament.php">Tournament</a> <br><br>
+<a href="championshipapp/score.php">SCORE</a>
+

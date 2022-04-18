@@ -1,0 +1,28 @@
+*{margin: 0;}
+.scoreTable{
+    width: 400px;
+    padding: 10px;
+    border: 2px black solid;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, .2);
+    text-align: center;
+}
+.scoreBlock{
+    width: auto;
+    margin: 5px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, .1);
+    border: 1px black solid;
+    border-radius: 10px;
+    font-size: 1.4em;
+    -webkit-text-stroke: 0.3px black ;
+}
+
+.scoreBlock:last-child{
+    margin-bottom: 0;
+}
+.scoreBlockText{
+    display: flex;
+    justify-content: space-around;
+    color: green;
+}

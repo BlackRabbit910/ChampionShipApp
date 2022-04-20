@@ -10,7 +10,7 @@ $nameDB = 'main_content' ;
 $tableName = 'score' ;
 
 //Count slice array for Challenge
-$countSlice = 3;
+$countSlice = 4;
 
 
 

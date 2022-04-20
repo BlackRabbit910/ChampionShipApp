@@ -3,10 +3,10 @@
 require('require.php');
 
 session_start();
-print_r($arrayPairs);
+
 
 ?>
-<pre><?php print_r($challenger3);?></pre>
+<!-- <pre><?php print_r($challenger3);?></pre> -->
 <?php
 
 
@@ -22,19 +22,24 @@ print_r($arrayPairs);
             <a href="../index.php"><div class='navBlock'>Tournament</div></a> 
             <a href="../championshipapp/scoreTable.php"><div class='navBlock'>SCORE</div></a>
             <a href="destroy.php"><div class='navBlock'>destroy</div></a>
-        </div>
+        </div>   
+        
         <div class='challengers'>
+            <?php foreach($_SESSION['challengerPair'] as $key => $value): ?>
+            <?php echo $value;?>
+            <?php ?>
+            <?php ?>            
+                <span class='numbering'><p><--  <?= $key+1 ?>  ---  <?php echo count($_SESSION['challengerPair']) ?>  --></p></span>
+                <div class='challengerPairs'>
+                    
+                                                                                                                                                                
+                <button class='buttonChallengers'><img class='imgChallengers' src="../img/challenger/<?= ${challenger . $value[0]}->getName(); ?>.jpg"></button>
+                                                                                                                                                                
+                <button class='buttonChallengers'><img class='imgChallengers' src="../img/challenger/<?= ${challenger . $value[1]}->getName(); ?>.jpg"></button>
+                                                                                                                                                                
 
-
-            <div class='challengerPairs'>
-                
-            <button class='buttonChallengers'><img class='imgChallengers' src="../img/challenger/<?= $challenger1->getIdBlock(); ?>.jpg"></button>
-
-            <button class='buttonChallengers'><img class='imgChallengers' src="../img/challenger/<?= $challenger2->getIdBlock(); ?>.jpg"></button>
-
-            </div>
-
-
+                </div>
+            <?php endforeach; ?>
         </div>
     </body>
 </html>

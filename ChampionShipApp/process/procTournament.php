@@ -4,10 +4,15 @@ session_start();
 require('./config.php');
 
 if ($_SESSION['challenger'] != null){
+
     foreach ($_SESSION['challenger'] as $key => $value) {
         $name = 'challenger' . $key;
         $$name = $value;  
     }
+
+
+
+
 }else{
     $linkDB = new linkDB($ip, $login, $password, $nameDB);
 
@@ -28,33 +33,57 @@ if ($_SESSION['challenger'] != null){
     
     
     
-    
-    // создаём готовые пары претендентов и делаем масив
-    function arrayPairs(){    
-        global $arrayTournament;
-    
-        $enterArr = $arrayTournament;
-    
-        $count = count($enterArr);
-    
-        $arr=[];
-    
-        for ($i=0; $i < $count; $i++) { 
-            foreach($enterArr as $key => $massive){
-                $a = $enterArr[$i];
+    function arrayPairs(){
+        global $countSlice;
+        $arrNum = [];
+
+        for ($i=0; $i < $countSlice; $i++) {
+            array_push($arrNum, $i);
+        }
+
+        $arr = [];
+        for ($i=0; $i < $countSlice; $i++) { 
+            foreach($arrNum as $key => $massive){
+                $a = $i;
                 $b = $massive;        
                 if ($a != $b){       
                     $c = [$a, $b];     
                 array_push($arr, $c);
                 }
             };
-            unset($enterArr[$i]);
+            unset($arrNum[$i]);
         }
-    
-        shuffle($arr);
-    
+            shuffle($arr);
+
         return $arr;
     }
+    // создаём готовые пары претендентов и делаем масив -> [7,5] [5,3] [3,7] 
+    // по тиму Треугольного числа
+    // function arrayPairs(){    
+    //     global $arrayTournament;
+    
+    //     $enterArr = $arrayTournament;
+    
+    //     $count = count($enterArr);
+    
+    //     $arr=[];
+    
+    //     for ($i=0; $i < $count; $i++) { 
+    //         foreach($enterArr as $key => $massive){
+    //             $a = $enterArr[$i];
+    //             $b = $massive;        
+    //             if ($a != $b){       
+    //                 $c = [$a, $b];     
+    //             array_push($arr, $c);
+    //             }
+    //         };
+    //         unset($enterArr[$i]);
+    //     }
+    
+    //     shuffle($arr);
+    
+    //     return $arr;
+    // }
     $arrayPairs = arrayPairs();
     
     
@@ -64,6 +93,8 @@ if ($_SESSION['challenger'] != null){
         $$name = new challenger($arr['idBlock'], $arr['score'], $arr['numChoises'], $arr['name']);
         array_push($_SESSION['challenger'], $$name);    
     };
+    
+    $_SESSION['challengerPair'] = $arrayPairs;
 
 };
 

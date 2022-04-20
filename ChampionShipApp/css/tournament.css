@@ -1,7 +1,6 @@
 *{margin: 0;}
 .challengers{
     width: 800px;
-    height: 400px;
     border: 2px black solid;
     border-radius: 15px;
     box-shadow: 1px 1px 2px 4px black;
@@ -40,4 +39,8 @@
     border-radius: 10px;
     background-color: orange;
 
+}
+.numbering{
+    font-size: 18px;
+    text-align: center;
 }

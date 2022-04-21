@@ -44,3 +44,10 @@
     font-size: 18px;
     text-align: center;
 }
+.responceText{
+    font-size: 24px;
+    color: green;
+}
+.responceText a{
+    color: rgb(0, 110, 255);
+}

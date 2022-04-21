@@ -21,9 +21,15 @@ class challenger
     public function getScore(){
         return $this->score;   
     }
+    public function setScore($n){
+        $this->score = $n;
+    }
 
     public function getNumChoises(){
         return $this->numChoises;   
+    }
+    public function setNumChoises($n){
+        $this->numChoises = $n;
     }
 
     public function getName(){

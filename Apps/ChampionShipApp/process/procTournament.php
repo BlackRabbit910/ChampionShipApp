@@ -1,7 +1,6 @@
 <?php
 session_start();
-
-require('./config.php');
+require($urlMain . 'config.php');
 
 if ($_SESSION['challenger'] != null){
 
@@ -57,33 +56,7 @@ if ($_SESSION['challenger'] != null){
 
         return $arr;
     }
-    // создаём готовые пары претендентов и делаем масив -> [7,5] [5,3] [3,7] 
-    // по тиму Треугольного числа
-    // function arrayPairs(){    
-    //     global $arrayTournament;
     
-    //     $enterArr = $arrayTournament;
-    
-    //     $count = count($enterArr);
-    
-    //     $arr=[];
-    
-    //     for ($i=0; $i < $count; $i++) { 
-    //         foreach($enterArr as $key => $massive){
-    //             $a = $enterArr[$i];
-    //             $b = $massive;        
-    //             if ($a != $b){       
-    //                 $c = [$a, $b];     
-    //             array_push($arr, $c);
-    //             }
-    //         };
-    //         unset($enterArr[$i]);
-    //     }
-    
-    //     shuffle($arr);
-    
-    //     return $arr;
-    // }
     $arrayPairs = arrayPairs();
     
     

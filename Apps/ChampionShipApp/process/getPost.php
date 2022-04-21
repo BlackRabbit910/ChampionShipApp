@@ -55,8 +55,8 @@ for ($i=0; $i < $count; $i++) {
     $numChoisesChallenger = ${'challenger' . $i}->getNumChoises();
     $nameChall = ${'challenger' . $i}->getName();
 
-    $setData = mysqli_query($linkDB->getConnect(), "UPDATE $tableName SET `score` = $scoreChallenger WHERE $tableName.`idBlock` = $idChallenger; ");
-    $setData2 = mysqli_query($linkDB->getConnect(), "UPDATE $tableName SET `numChoises` = $numChoisesChallenger WHERE $tableName.`idBlock` = $idChallenger;");
+    // $setData = mysqli_query($linkDB->getConnect(), "UPDATE $tableName SET `score` = $scoreChallenger WHERE $tableName.`idBlock` = $idChallenger; ");
+    // $setData2 = mysqli_query($linkDB->getConnect(), "UPDATE $tableName SET `numChoises` = $numChoisesChallenger WHERE $tableName.`idBlock` = $idChallenger;");
      
 }
 

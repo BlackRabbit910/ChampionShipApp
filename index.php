@@ -1,14 +1,12 @@
 <?php
+require('apps/championShipApp/config.php');
 session_start();
 
-print_r($_SESSION);
 ?>
 <html>
 
     <head>
         <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="championShipApp/css/scoreTable.css">
-        <link rel="stylesheet" href="championShipApp/css/tournament.css">
     </head>
     
     <body>        
@@ -20,6 +18,10 @@ print_r($_SESSION);
 
 
     </body>
+
+    <?php require($urlMain . 'scoreTable.php'); ?>
+
+
 
 </html>
 

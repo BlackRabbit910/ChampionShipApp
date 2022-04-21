@@ -1,7 +1,7 @@
 <?php
+require_once('../config.php');
 require_once('../class/challenger.php');
 require_once('../class/linkDB.php');
-require_once('../config.php');
 session_start();
 
 foreach ($_SESSION['challenger'] as $key => $value) {
@@ -54,6 +54,8 @@ for ($i=0; $i < $count; $i++) {
     $numChoisesChallenger = ${'challenger' . $i}->getNumChoises();
     $nameChall = ${'challenger' . $i}->getName();
      
+    $setData = mysqli_query($linkDB->getConnect(), "UPDATE $tableName SET $scoreColumnName = $scoreChallenger WHERE $tableName.$idColumn = $idChallenger; "); // scoreColumnName idColumn => config
+    $setData2 = mysqli_query($linkDB->getConnect(), "UPDATE $tableName SET $countChoises = $numChoisesChallenger WHERE $tableName.$idColumn = $idChallenger;"); // countChoises idColumn => config
 }
 
 

@@ -15,12 +15,12 @@ if ($_SESSION['challenger'] != null){
 }else{
     $linkDB = new linkDB($ip, $login, $password, $nameDB);
 
-    $arrayDB = mysqli_query($linkDB->getConnect(), "select * from $tableName ");
+    $arrayDB = mysqli_query($linkDB->getConnect(), "select * from $tableName ");//tableName => config
     $arrayDB = mysqli_fetch_all($arrayDB,1);
     
     //SORT
     //сортируем масив по количеству вызовов на турнир
-    $arrIDBlock = array_column($arrayDB, 'numChoises');
+    $arrIDBlock = array_column($arrayDB, $countChoises); //$countChoises => config
     array_multisort($arrIDBlock, SORT_ASC, $arrayDB);
     
     //SLICE
@@ -28,7 +28,7 @@ if ($_SESSION['challenger'] != null){
     
     //ADD
     // cуём номера претендентов в один массив
-    $arrayTournament = array_column($sliceArray, 'idBlock');
+    $arrayTournament = array_column($sliceArray, $idColumn); //idColimn => config
     
     
     
@@ -63,7 +63,7 @@ if ($_SESSION['challenger'] != null){
     $_SESSION['challenger'] = [];
     foreach ($sliceArray as $key => $arr) {
         $name = 'challenger' . $key;
-        $$name = new challenger($arr['idBlock'], $arr['score'], $arr['numChoises'], $arr['name']);
+        $$name = new challenger($arr[$idColumn], $arr[$scoreColumnName], $arr[$countChoises], $arr[$nameColumn]); // idColumn scoreColumnName countChoises nameColumn => config
         array_push($_SESSION['challenger'], $$name);    
     };
     

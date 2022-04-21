@@ -73,7 +73,7 @@ function sendJSON(dataString) {
     let xhr = new XMLHttpRequest();
     
     // адрес, куда мы отправим нашу JSON-строку
-    let url = "process/getPost.php";
+    let url = "apps/championshipapp/process/getPost.php";
     
     // открываем соединение
     xhr.open("POST", url, true);

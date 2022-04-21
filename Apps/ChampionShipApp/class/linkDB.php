@@ -15,14 +15,14 @@ class linkDB
     }
 
     public function getAllArray($nameTable, $accoc){
-        $array = mysqli_connect($this->ip, $this->login, $this->password, $this->database);
+        $linkConnect = mysqli_connect($this->ip, $this->login, $this->password, $this->database);
         
         if (mysqli_connect_errno()){
             echo 'Тут какая-то ошибка';  
             exit();     
         };
 
-        $array = mysqli_query($array, "select * from `$nameTable` ");
+        $array = mysqli_query($linkConnect, "select * from `$nameTable` ");
 
         if ($accoc == 0 ){
             $accoc = MYSQLI_NUM;

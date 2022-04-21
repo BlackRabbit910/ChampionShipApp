@@ -24,27 +24,30 @@ session_start();
             <a href="destroy.php"><div class='navBlock'>destroy</div></a>
         </div>   
         
-        <div class='challengers'>
+        <div class='challengers'>            
+        <p id='result' class='responceText'></p>
+            <?php $i=0 ?>            
             <?php foreach($_SESSION['challengerPair'] as $key => $value): ?>
-            <?php echo $value;?>
-            <?php ?>
-            <?php ?>            
-                <span class='numbering'><p><--  <?= $key+1 ?>  ---  <?php echo count($_SESSION['challengerPair']) ?>  --></p></span>
+            
+            
                 <div class='challengerPairs'>
-                    
-                                                                                                                                                                
-                <button class='buttonChallengers'><img class='imgChallengers' src="../img/challenger/<?= ${challenger . $value[0]}->getName(); ?>.jpg"></button>
-                                                                                                                                                                
-                <button class='buttonChallengers'><img class='imgChallengers' src="../img/challenger/<?= ${challenger . $value[1]}->getName(); ?>.jpg"></button>
+                <span class='numbering'><p><--  <?= $key+1 ?>  ---  <?php echo count($_SESSION['challengerPair']) ?>  --></p></span>    
+                
+                <input id='imgIdBlock<?= $i ?>' type="hidden" value='<?= ${challenger . $value[0]}->getIdBlock(); ?>'>
+                <button onclick='multiButton(<?= $i ?>)' class='buttonChallengers'><img class='imgChallengers' src="../img/challenger/<?= ${challenger . $value[0]}->getName(); ?>.jpg"></button>
+                     
+                <input id='imgIdBlock<?= $i+1 ?>' type="hidden" value='<?= ${challenger . $value[1]}->getIdBlock(); ?>'>
+                <button onclick='multiButton(<?= $i+1 ?>)' class='buttonChallengers'><img class='imgChallengers' src="../img/challenger/<?= ${challenger . $value[1]}->getName(); ?>.jpg"></button>
                                                                                                                                                                 
 
                 </div>
+            <?php $i+=2 ; ?>
             <?php endforeach; ?>
         </div>
+        <a href="process/getPost.php">getPost</a>
     </body>
+    <script src='js/jsTournament.js'></script>
 </html>
-<br>
-            <a href="process/procTournament.php">qweqwe</a>
 <?php
 
 

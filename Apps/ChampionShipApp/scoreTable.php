@@ -3,42 +3,34 @@ require('process/procScoreTable.php');
 
 ?>
 
-<html>
-
-    <head>
-        <link rel="stylesheet" href="/apps/championshipapp/css/scoreTable.css">
-    </head>
+<head>
+    <link rel="stylesheet" href="/apps/championshipapp/css/scoreTable.css">
+</head>
     
-    <body>      
-        
-        <div class='scoreTable'>
+<div class='scoreTable'>
 
-            <h1>Score Table</h1>
+    <h1>Score Table</h1>
 
-            <?php foreach($arrayDB as $arr): ?>
-            <?php  ?>
-            <?php  ?>
-            <?php  ?>
-            <?php  ?>
-            <?php  ?>
+    <?php foreach($arrayDB as $arr): ?>
 
-            <div class='scoreBlock'>
 
-                <h3><?= $arr['name'] ?></h3>
-                <img src="<?= $imgUrl ?><?= $arr['name'] ?>.jpg">
+    <div class='scoreBlock'>
 
-                <div class='scoreBlockText'>
-                    <span><p>Score : <?= $arr['score'] ?></p></span>
-                    <span><p>Call count : <?= $arr['numChoises'] ?></p></span>
-                </div>
+        <h3><?= $arr['name'] ?></h3>
 
-            </div>
-            <?php endforeach; ?>
+        <img src="<?= $imgUrl ?><?= $arr['name'] ?>.jpg">
 
+        <div class='scoreBlockText'>
+            <span><p>Score : <?= $arr['score'] ?></p></span>
+            <span><p>Call count : <?= $arr['numChoises'] ?></p></span>
         </div>
 
-    </body>
+    </div>
+    
 
-</html>
+    <?php endforeach; ?>
 
+</div>
+
+        
 

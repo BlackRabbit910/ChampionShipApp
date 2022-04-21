@@ -48,15 +48,11 @@ for ($i=0; $i < $count; $i++) {
 
 for ($i=0; $i < $count; $i++) { 
 
-
     $scoreChallenger = ${'challenger' . $i}->getScore();
 
     $idChallenger = ${'challenger' . $i}->getIdBlock();
     $numChoisesChallenger = ${'challenger' . $i}->getNumChoises();
     $nameChall = ${'challenger' . $i}->getName();
-
-    // $setData = mysqli_query($linkDB->getConnect(), "UPDATE $tableName SET `score` = $scoreChallenger WHERE $tableName.`idBlock` = $idChallenger; ");
-    // $setData2 = mysqli_query($linkDB->getConnect(), "UPDATE $tableName SET `numChoises` = $numChoisesChallenger WHERE $tableName.`idBlock` = $idChallenger;");
      
 }
 
@@ -67,7 +63,7 @@ for ($i=0; $i < $count; $i++) {
 
 session_destroy();
 
-
+//Ответ на полной загрузке запроса на БД
 echo 'Ваши данные успешно сохранены,<a href="../index.php">-> НА ГЛАВНУЮ СТРАНИЦУ <-</a>' ;
 
 
